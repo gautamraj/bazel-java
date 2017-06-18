@@ -1,0 +1,5 @@
+build --color=yes
+build --curses=yes
+build --verbose_failures
+# Explicitly set the PATH (resolves plugin issues)
+build --action_env=PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
