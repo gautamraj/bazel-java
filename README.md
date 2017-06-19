@@ -1,4 +1,4 @@
-Simple bazel java example project
+# Simple java+bazel example project
 
 Features
 - Multi-module project (maven layout), one build file per module
