@@ -1,3 +1,6 @@
 Simple bazel java example project
 
-Uses maven standard package layout
+Features
+- Multi-module project (maven layout), one build file per module
+- Dependencies between modules
+- External maven dependency (guava)
