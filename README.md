@@ -1,3 +1,5 @@
+Work in progress...
+
 Simple bazel java example project
 
-Uses maven standard package layout
+Trying to follow https://bazel.build/versions/master/docs/best-practices.html
