@@ -18,7 +18,6 @@ def java_test_package(name, package, deps, size="small", resources=[],
     if library_srcs:
         native.java_library(
             name = name,
-            package = package,
             srcs = library_srcs,
             deps = deps)
         # Add this library as a dependency for unit/itcases
@@ -76,18 +75,26 @@ EOF
 """ % (package, ",".join(tests))
     )
 
-    # Compile the test suite + AllTests
-    native.java_test(
-        name = name,
+    # For some reason the IntelliJ bazel plugin wants this to be compiled as a
+    # java_library first.
+    libname = name + "_testlib"
+    native.java_library(
+        name = libname,
         srcs = srcs + [alltests_name],
-        test_class = package + ".AllTests",
         resources = resources,
         data = data,
-        size = size,
-        tags = tags,
-        jvm_flags = jvm_flags,
         # Junit is required by AllTests
         deps = set(deps + [
             "//third_party:junit",
         ]),
+    )
+
+    # Compile the test suite + AllTests
+    native.java_test(
+        name = name,
+        test_class = package + ".AllTests",
+        runtime_deps = [libname],
+        size = size,
+        tags = tags,
+        jvm_flags = jvm_flags,
     )
