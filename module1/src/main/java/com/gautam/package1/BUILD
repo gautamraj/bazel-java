@@ -1,18 +1,11 @@
 package(default_visibility = ["//visibility:public"])
+load("//bazel:main.bzl", "java_package")
 
-java_library(
+java_package(
     name = "package1",
-    srcs = glob(["*.java"]),
+    package = "com.gautam.package1",
     deps = [
         "//module2/src/main/java/com/gautam/package2:package2",
         "//third_party:guava",
     ],
-)
-
-java_binary(
-    name = "package1_Main",
-    runtime_deps = [
-        ":package1",
-    ],
-    main_class = "com.gautam.package1.Main",
 )

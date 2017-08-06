@@ -1,19 +1,11 @@
 package(default_visibility = ["//visibility:public"])
+load("//bazel:test.bzl", "java_test_package")
 
-java_library(
-    name = "package2_test",
-    srcs = glob(["*.java"]),
+java_test_package(
+    name = "package2",
+    package = "com.gautam.package2",
     deps = [
         "//module2/src/main/java/com/gautam/package2",
         "//third_party:guava",
         "//third_party:junit",
-    ],
-)
-
-java_test(
-    name = "FooTest",
-    size = "small",
-    runtime_deps = [
-        ":package2_test",
-    ],
-)
+    ])
