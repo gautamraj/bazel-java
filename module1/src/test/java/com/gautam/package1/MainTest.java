@@ -8,7 +8,7 @@ import org.junit.runners.JUnit4;
 public class MainTest {
 
   @Test
-  public void testMain() throws Exception {
-    Main.main(new String[]{});
+  public void testMain1() throws Exception {
+    Main.main(MyLibrary.TEST_DATA);
   }
 }

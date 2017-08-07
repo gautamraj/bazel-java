@@ -36,7 +36,7 @@ def java_test_package(name, package, deps, size="small", resources=[],
         junit4_suite_test(
             name = "itcase",
             package = package,
-            srcs = unit_test_srcs,
+            srcs = itcase_srcs,
             deps = deps)
 
 
@@ -57,10 +57,11 @@ def junit4_suite_test(name, package, srcs, deps, size="small", resources=[],
             tests += [src.replace(".java", ".class")]
 
     # Generate the AllTests.java test suite
+    alltests_class_name = name + "AllTests"
     alltests_name = name + "_AllTests"
     native.genrule(
         name = alltests_name,
-        outs = ["AllTests.java"],
+        outs = [alltests_class_name + ".java"],
         cmd = """
 cat <<EOF >> $@
 package %s;
@@ -70,9 +71,9 @@ import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({%s})
-public class AllTests {}
+public class %s {}
 EOF
-""" % (package, ",".join(tests))
+""" % (package, ",".join(tests), alltests_class_name)
     )
 
     # For some reason the IntelliJ bazel plugin wants this to be compiled as a
@@ -92,7 +93,7 @@ EOF
     # Compile the test suite + AllTests
     native.java_test(
         name = name,
-        test_class = package + ".AllTests",
+        test_class = package + "." + alltests_class_name,
         runtime_deps = [libname],
         size = size,
         tags = tags,

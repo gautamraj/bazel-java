@@ -4,11 +4,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
+/**
+ * @author Gautam Raj (gautamraj@gmail.com)
+ */
 @RunWith(JUnit4.class)
-public class Main2Test {
+public class MyITCase {
 
   @Test
-  public void testMain2() throws Exception {
+  public void testEverything() throws Exception {
     Main.main(MyLibrary.TEST_DATA);
   }
 }
