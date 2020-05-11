@@ -1,0 +1,26 @@
+options:
+  languages: [ "java" ]
+  resolverType: "coursier"
+  resolvers:
+    - id: "mavencentral"
+      type: "default"
+      url: https://repo.maven.apache.org/maven2/
+  strictVisibility: true
+  transitivity: runtime_deps
+  versionConflictPolicy: highest
+
+dependencies:
+  com.google.code.findbugs:
+    jsr305:
+      lang: java
+      version: "3.0.2"
+
+  com.google.guava:
+    guava:
+      lang: java
+      version: "29.0-jre"
+
+  junit:
+    junit:
+      lang: java
+      version: "4.13"

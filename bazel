@@ -1,0 +1,7 @@
+#!/bin/bash
+if [ ! -x "$(command -v bazelisk)" ]; then
+  echo "bazelisk not found; see https://github.com/bazelbuild/bazelisk"
+  exit 1
+fi
+
+bazelisk --nosystem_rc $@
