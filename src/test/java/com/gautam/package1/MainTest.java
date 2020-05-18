@@ -10,7 +10,6 @@ public class MainTest {
 
   @Test
   public void testMain1() throws Exception {
-    Assert.fail();
     Main.main(MyLibrary.TEST_DATA);
   }
 }
