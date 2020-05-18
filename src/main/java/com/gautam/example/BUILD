@@ -9,3 +9,8 @@ java_library(
         "@third_party//3rdparty/jvm/javax/inject:javax_inject",
     ],
 )
+
+java_binary(
+    name = "ExampleMain",
+    runtime_deps = [":example"],
+)
