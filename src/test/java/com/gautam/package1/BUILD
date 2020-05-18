@@ -19,7 +19,10 @@ java_library(
 junit4_test_suite(
     name = "AllTests",
     size = "small",
-    srcs = glob(["*Test.java", "*ITCase.java"]),
+    srcs = glob([
+        "*Test.java",
+        "*ITCase.java",
+    ]),
     deps = [
         ":package1",
         "//src/main/java/com/gautam/package1",

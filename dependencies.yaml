@@ -15,6 +15,12 @@ dependencies:
       lang: java
       version: "3.0.2"
 
+  com.google.dagger:
+    dagger:
+      lang: java
+      modules: [ "", "compiler", "producers", "spi" ]
+      version: "2.27"
+
   com.google.guava:
     guava:
       lang: java
