@@ -1,4 +1,4 @@
-def junit4_test_suite(name, srcs, deps, runtime_deps = [], size="small", resources=[], jvm_flags=[], tags=[], data=[]):
+def junit4_test_suite(name, srcs, deps, runtime_deps = [], size = "small", resources = [], jvm_flags = [], tags = [], data = []):
     # Assume each .java file contains a single Test class.
     for src in srcs:
         test_name = src.split("/")[-1].replace(".java", "")
