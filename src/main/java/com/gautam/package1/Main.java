@@ -1,12 +1,9 @@
 package com.gautam.package1;
 
+import com.gautam.package2.Foo;
 import com.google.common.base.Joiner;
 
-import com.gautam.package2.Foo;
-
-/**
- * Main class
- */
+/** Main class */
 public class Main {
 
   public static void main(String[] args) {

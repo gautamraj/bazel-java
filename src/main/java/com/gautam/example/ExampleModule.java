@@ -5,9 +5,7 @@ import dagger.Module;
 import dagger.Provides;
 import javax.inject.Singleton;
 
-/**
- * The primary {@link Module} for the example application.
- */
+/** The primary {@link Module} for the example application. */
 @Module
 public class ExampleModule {
 
