@@ -50,7 +50,7 @@ fi
 
 cd $REPO_ROOT
 set +e
-$BAZEL_DEPS_PATH generate -r $REPO_ROOT -s 3rdparty/workspace.bzl -d dependencies.yaml  --target-file 3rdparty/target_file.bzl --disable-3rdparty-in-repo
+$BAZEL_DEPS_PATH generate -r $REPO_ROOT -s 3rdparty/workspace.bzl -d maven_dependencies.yaml  --target-file 3rdparty/target_file.bzl --disable-3rdparty-in-repo
 RET_CODE=$?
 set -e
 
@@ -63,4 +63,4 @@ else
   exit $RET_CODE
 fi
 
-$BAZEL_DEPS_PATH format-deps -d $REPO_ROOT/dependencies.yaml -o
+$BAZEL_DEPS_PATH format-deps -d $REPO_ROOT/maven_dependencies.yaml -o

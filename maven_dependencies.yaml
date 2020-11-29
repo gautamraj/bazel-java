@@ -21,6 +21,11 @@ dependencies:
       modules: [ "", "compiler", "producers", "spi" ]
       version: "2.27"
 
+  com.google.googlejavaformat:
+    google-java-format:
+      lang: java
+      version: "1.9"
+
   com.google.guava:
     guava:
       lang: java

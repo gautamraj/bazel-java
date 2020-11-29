@@ -1,7 +1,7 @@
 package com.gautam.example;
 
 /**
- * @author Gautam Raj (graj@stripe.com)
+ * Entrypoint into the example project
  */
 public class ExampleMain {
 
