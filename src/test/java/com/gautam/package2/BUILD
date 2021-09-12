@@ -9,7 +9,7 @@ junit4_test_suite(
     ]),
     deps = [
         "//src/main/java/com/gautam/package2",
-        "@third_party//3rdparty/jvm/com/google/guava",
-        "@third_party//3rdparty/jvm/junit",
+        "@maven//:com_google_guava_guava",
+        "@maven//:junit_junit",
     ],
 )

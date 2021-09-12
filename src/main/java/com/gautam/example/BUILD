@@ -5,8 +5,8 @@ java_library(
     deps = [
         "//src/main/java/com/gautam/package2",
         "//third_party:dagger_with_compiler",
-        "@third_party//3rdparty/jvm/com/google/guava",
-        "@third_party//3rdparty/jvm/javax/inject:javax_inject",
+        "@maven//:com_google_guava_guava",
+        "@maven//:javax_inject_javax_inject",
     ],
 )
 

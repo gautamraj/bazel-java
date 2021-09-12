@@ -7,6 +7,5 @@ package com.gautam.package1;
  */
 public class MyLibrary {
 
-  public static final String[] TEST_DATA = new String[]{"Foo"};
-
+  public static final String[] TEST_DATA = new String[] {"Foo"};
 }

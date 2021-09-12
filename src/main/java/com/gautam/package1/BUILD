@@ -4,6 +4,6 @@ java_library(
     visibility = ["//visibility:public"],
     deps = [
         "//src/main/java/com/gautam/package2",
-        "@third_party//3rdparty/jvm/com/google/guava",
+        "@maven//:com_google_guava_guava",
     ],
 )
