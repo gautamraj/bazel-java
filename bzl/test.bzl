@@ -1,3 +1,7 @@
+"""
+Test macros
+"""
+
 def junit4_test_suite(name, srcs, deps, runtime_deps = [], size = "small", resources = [], jvm_flags = [], tags = [], data = []):
     # Assume each .java file contains a single Test class.
     for src in srcs:
@@ -10,6 +14,8 @@ def junit4_test_suite(name, srcs, deps, runtime_deps = [], size = "small", resou
             deps = deps,
             runtime_deps = runtime_deps,
             size = size,
-            tags = tags,
+            resources = resources,
             jvm_flags = jvm_flags,
+            tags = tags,
+            data = data,
         )

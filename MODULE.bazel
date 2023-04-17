@@ -1,0 +1,32 @@
+bazel_dep(name = "rules_jvm_external", version = "5.2")
+
+maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
+maven.install(
+    artifacts = [
+        "com.google.code.findbugs:jsr305:3.0.2",
+        "com.google.dagger:dagger-compiler:2.38.1",
+        "com.google.dagger:dagger-producers:2.38.1",
+        "com.google.dagger:dagger-spi:2.38.1",
+        "com.google.dagger:dagger:2.38.1",
+        "com.google.googlejavaformat:google-java-format:1.9",
+        "com.google.guava:guava:29.0-jre",
+        "com.fasterxml.jackson.core:jackson-databind:jar:2.12.5",
+        "io.javalin:javalin:jar:3.13.11",
+        "javax.inject:javax.inject:1",
+        "junit:junit:4.13",
+        "org.apache.logging.log4j:log4j-core:jar:2.14.1",
+        "org.apache.logging.log4j:log4j-slf4j-impl:jar:2.14.1",
+    ],
+    repositories = [
+        "https://maven.google.com",
+        "https://repo1.maven.org/maven2",
+    ],
+)
+use_repo(maven, "maven")
+
+# Buildifier
+bazel_dep(
+    name = "buildifier_prebuilt",
+    version = "6.1.0",
+    dev_dependency = True,
+)
