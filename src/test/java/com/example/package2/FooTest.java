@@ -1,4 +1,4 @@
-package com.gautam.package2;
+package com.example.package2;
 
 import java.util.List;
 import org.junit.Assert;

@@ -8,7 +8,7 @@ junit4_test_suite(
         "*ITCase.java",
     ]),
     deps = [
-        "//src/main/java/com/gautam/package2",
+        "//src/main/java/com/example/package2",
         "@maven//:com_google_guava_guava",
         "@maven//:junit_junit",
     ],

@@ -1,4 +1,4 @@
-package com.gautam.rest;
+package com.example.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.javalin.Javalin;

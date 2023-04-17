@@ -1,4 +1,4 @@
-package com.gautam.example;
+package com.example.example;
 
 /** Entrypoint into the example project */
 public class ExampleMain {

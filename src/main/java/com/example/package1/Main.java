@@ -1,6 +1,6 @@
-package com.gautam.package1;
+package com.example.package1;
 
-import com.gautam.package2.Foo;
+import com.example.package2.Foo;
 import com.google.common.base.Joiner;
 
 /** Main class */

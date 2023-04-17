@@ -10,7 +10,7 @@ java_library(
         ],
     ),
     deps = [
-        "//src/main/java/com/gautam/package1",
+        "//src/main/java/com/example/package1",
         "@maven//:com_google_guava_guava",
         "@maven//:junit_junit",
     ],
@@ -25,6 +25,6 @@ junit4_test_suite(
     ]),
     deps = [
         ":package1",
-        "//src/main/java/com/gautam/package1",
+        "//src/main/java/com/example/package1",
     ],
 )

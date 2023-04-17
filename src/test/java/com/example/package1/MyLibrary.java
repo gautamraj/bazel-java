@@ -1,4 +1,4 @@
-package com.gautam.package1;
+package com.example.package1;
 
 /**
  * Shared test library

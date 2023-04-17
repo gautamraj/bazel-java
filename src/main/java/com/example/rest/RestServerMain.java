@@ -1,4 +1,4 @@
-package com.gautam.rest;
+package com.example.rest;
 
 public class RestServerMain {
 

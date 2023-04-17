@@ -1,4 +1,4 @@
-package com.gautam.rest;
+package com.example.rest;
 
 import com.google.common.util.concurrent.AtomicLongMap;
 import io.javalin.Javalin;

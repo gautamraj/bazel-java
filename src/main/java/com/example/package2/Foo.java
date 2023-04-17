@@ -1,4 +1,4 @@
-package com.gautam.package2;
+package com.example.package2;
 
 import com.google.common.collect.ImmutableList;
 import java.util.List;

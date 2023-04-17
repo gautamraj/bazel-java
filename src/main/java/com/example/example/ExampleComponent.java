@@ -1,6 +1,6 @@
-package com.gautam.example;
+package com.example.example;
 
-import com.gautam.package2.Foo;
+import com.example.package2.Foo;
 import dagger.Component;
 import javax.inject.Singleton;
 
