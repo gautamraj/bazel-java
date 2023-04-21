@@ -10,6 +10,6 @@ junit4_test_suite(
     deps = [
         "//src/main/java/com/example/package2",
         "@maven//:com_google_guava_guava",
-        "@maven//:junit_junit",
+        "@maven//:org_assertj_assertj_core",
     ],
 )

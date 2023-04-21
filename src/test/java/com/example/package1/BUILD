@@ -26,5 +26,6 @@ junit4_test_suite(
     deps = [
         ":package1",
         "//src/main/java/com/example/package1",
+        "@maven//:org_assertj_assertj_core",
     ],
 )
