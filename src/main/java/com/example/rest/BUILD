@@ -10,7 +10,7 @@ java_library(
         "@maven//:org_apache_logging_log4j_log4j_slf4j_impl",
     ],
     deps = [
-        "//third_party:dagger_with_compiler",
+        "//third_party:dagger",
         "@maven//:com_fasterxml_jackson_core_jackson_annotations",
         "@maven//:com_fasterxml_jackson_core_jackson_core",
         "@maven//:com_fasterxml_jackson_core_jackson_databind",

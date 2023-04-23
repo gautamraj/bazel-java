@@ -4,7 +4,7 @@ java_library(
     visibility = ["//visibility:public"],
     deps = [
         "//src/main/java/com/example/package2",
-        "//third_party:dagger_with_compiler",
+        "//third_party:dagger",
         "@maven//:com_google_guava_guava",
         "@maven//:javax_inject_javax_inject",
     ],

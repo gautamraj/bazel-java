@@ -5,6 +5,7 @@ bazel_dep(name = "rules_jvm_external", version = "5.2")
 maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
 maven.install(
     artifacts = [
+        # Command line arg parsing
         "com.beust:jcommander:jar:1.82",
         "com.fasterxml.jackson.core:jackson-databind:jar:2.14.2",
         "com.google.code.findbugs:jsr305:3.0.2",
@@ -14,14 +15,21 @@ maven.install(
         "com.google.dagger:dagger:2.45",
         "com.google.googlejavaformat:google-java-format:1.16.0",
         "com.google.guava:guava:31.1-jre",
+        # Test Filesystem
         "com.google.jimfs:jimfs:1.2",
+        # For REST services
         "io.javalin:javalin:jar:3.13.11",
         "javax.inject:javax.inject:1",
         "junit:junit:4.13",
         "org.apache.commons:commons-lang3:jar:3.12.0",
+        # Logger dependencies
         "org.apache.logging.log4j:log4j-core:jar:2.20.0",
         "org.apache.logging.log4j:log4j-slf4j-impl:jar:2.20.0",
+        # Fluent test assertions
         "org.assertj:assertj-core:jar:3.24.2",
+        # JMH microbenchmarking
+        "org.openjdk.jmh:jmh-core:jar:1.36",
+        "org.openjdk.jmh:jmh-generator-annprocess:jar:1.36",
     ],
     lock_file = "//:rules_jvm_external~5.2~maven~maven_install.json",
     repositories = [
