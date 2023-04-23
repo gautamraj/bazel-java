@@ -28,6 +28,17 @@ import org.openjdk.jmh.annotations.TearDown;
 import org.openjdk.jmh.annotations.Threads;
 import org.openjdk.jmh.annotations.Warmup;
 
+/**
+ * Simple example benchmark. Run with:
+ * <pre>
+ * bazel run //src/test/java/com/example/bench:ExampleBenchmark
+ * </pre>
+ *
+ * <p>To generate profiles, download async-profiler and run:
+ * <pre>
+ * bazel run //src/test/java/com/example/bench:ExampleBenchmark -- -prof async:libPath=/path/to/async-profiler/build/libasyncProfiler.so
+ * </pre>
+ */
 @Fork(value = 1)
 @Threads(value = 1)
 @Warmup(iterations = 1, time = 5)
@@ -60,6 +71,7 @@ public class ExampleBenchmark {
         HttpRequest.newBuilder().GET().uri(URI.create(
             String.format("http://localhost:8080?name=%s", UUID.randomUUID()))).build(),
         new StringHandler());
+    // Important: When writing benchmarks, always return a result to avoid "dead code elimination".
     return future.get();
   }
 
