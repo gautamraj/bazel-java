@@ -11,10 +11,14 @@ import java.net.http.HttpResponse.BodySubscriber;
 import java.net.http.HttpResponse.BodySubscribers;
 import java.net.http.HttpResponse.ResponseInfo;
 import java.nio.charset.Charset;
+import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Fork;
@@ -40,8 +44,8 @@ import org.openjdk.jmh.annotations.Warmup;
  * </pre>
  */
 @Fork(value = 1)
-@Threads(value = 1)
-@Warmup(iterations = 1, time = 5)
+@Threads(value = 16)
+@Warmup(iterations = 2, time = 5)
 @Measurement(iterations = 3, time = 5)
 @BenchmarkMode(Mode.Throughput)
 @OutputTimeUnit(TimeUnit.SECONDS)
@@ -50,9 +54,13 @@ public class ExampleBenchmark {
 
   private RestServer server;
   private HttpClient httpClient;
+  private List<String> names;
 
   @Setup
   public void setup() {
+    names = IntStream.range(0, 10000)
+        .mapToObj(i -> UUID.randomUUID().toString())
+        .collect(Collectors.toList());
     server = new RestServer(8080, new RestRoutes());
     server.start();
     httpClient = HttpClient.newHttpClient();
@@ -69,10 +77,17 @@ public class ExampleBenchmark {
     // Use the HTTP client to make a request to the server.
     Future<HttpResponse<String>> future = httpClient.sendAsync(
         HttpRequest.newBuilder().GET().uri(URI.create(
-            String.format("http://localhost:8080?name=%s", UUID.randomUUID()))).build(),
+            String.format("http://localhost:8080/%s", names.get(
+                Math.abs(ThreadLocalRandom.current().nextInt()) % names.size()
+            )))).build(),
         new StringHandler());
+
     // Important: When writing benchmarks, always return a result to avoid "dead code elimination".
-    return future.get();
+    HttpResponse<String> response = future.get();
+    if (response.statusCode() != 200) {
+      throw new IllegalStateException("Unexpected response: " + response);
+    }
+    return response;
   }
 
   static class StringHandler implements BodyHandler<String> {

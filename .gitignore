@@ -1,3 +1,5 @@
 bazel-*
 .idea
 .ijwb
+.DS_Store
+profiles/

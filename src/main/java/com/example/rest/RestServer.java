@@ -25,6 +25,7 @@ public class RestServer {
             config -> {
               // Javalin configuration.
               config.asyncRequestTimeout = TimeUnit.SECONDS.toMillis(1);
+              config.showJavalinBanner = false;
               config.requestLogger(
                   (ctx, timeMs) -> {
                     if (timeMs >= TimeUnit.MILLISECONDS.toMillis(100)) {
