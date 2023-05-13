@@ -1,15 +1,15 @@
 package com.example.rest;
 
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import io.javalin.Javalin;
 import io.javalin.plugin.json.JavalinJackson;
 import java.util.concurrent.TimeUnit;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class RestServer {
-
-  private static final Logger log = LoggerFactory.getLogger(RestServer.class);
 
   private final int port;
   private final Javalin app;
@@ -18,7 +18,14 @@ public class RestServer {
     this.port = port;
 
     // Configure Jackson here.
-    JavalinJackson.configure(new ObjectMapper());
+    ObjectMapper objectMapper = new ObjectMapper();
+    // Support JDK8 types like Optional and Instant.
+    objectMapper.registerModule(new Jdk8Module());
+    objectMapper.registerModule(new JavaTimeModule());
+    // Enable jackson pretty printer
+    objectMapper.setDefaultPrettyPrinter(new DefaultPrettyPrinter());
+    objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
+    JavalinJackson.configure(objectMapper);
 
     this.app =
         Javalin.create(
@@ -28,9 +35,6 @@ public class RestServer {
               config.showJavalinBanner = false;
               config.requestLogger(
                   (ctx, timeMs) -> {
-                    if (timeMs >= TimeUnit.MILLISECONDS.toMillis(100)) {
-                      log.error("Slow request ({} ms): {}", timeMs, ctx);
-                    }
                   });
 
               // Configure Jetty here.
