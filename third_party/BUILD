@@ -27,5 +27,3 @@ java_plugin(
     processor_class = "org.openjdk.jmh.generators.BenchmarkProcessor",
     deps = ["@maven//:org_openjdk_jmh_jmh_generator_annprocess"],
 )
-
-

@@ -33,9 +33,7 @@ public class RestServer {
               // Javalin configuration.
               config.asyncRequestTimeout = TimeUnit.SECONDS.toMillis(1);
               config.showJavalinBanner = false;
-              config.requestLogger(
-                  (ctx, timeMs) -> {
-                  });
+              config.requestLogger((ctx, timeMs) -> {});
 
               // Configure Jetty here.
               // config.server(...);

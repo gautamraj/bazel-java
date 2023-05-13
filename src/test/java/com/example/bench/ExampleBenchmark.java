@@ -30,11 +30,13 @@ import org.openjdk.jmh.annotations.Warmup;
 
 /**
  * Simple example benchmark. Run with:
+ *
  * <pre>
  * bazel run //src/test/java/com/example/bench:ExampleBenchmark
  * </pre>
  *
  * <p>To generate profiles, download async-profiler and run:
+ *
  * <pre>
  * bazel run //src/test/java/com/example/bench:ExampleBenchmark -- -prof async:libPath=/path/to/async-profiler/build/libasyncProfiler.so
  * </pre>
@@ -68,8 +70,8 @@ public class ExampleBenchmark {
   public HttpResponse<String> benchServer() throws ExecutionException, InterruptedException {
     // Use the HTTP client to make a request to the server.
     URI uri = URI.create("http://localhost:8080/" + UUID.randomUUID());
-    Future<HttpResponse<String>> future = httpClient.sendAsync(
-        HttpRequest.newBuilder().GET().uri(uri).build(), new StringHandler());
+    Future<HttpResponse<String>> future =
+        httpClient.sendAsync(HttpRequest.newBuilder().GET().uri(uri).build(), new StringHandler());
 
     // Important: When writing benchmarks, always return a result to avoid "dead code elimination".
     HttpResponse<String> response = future.get();

@@ -27,5 +27,8 @@ java_library(
 
 java_binary(
     name = "RestServerMain",
+    jvm_flags = [
+        "-XX:+UseZGC",
+    ],
     runtime_deps = [":rest"],
 )

@@ -49,8 +49,10 @@ class GetNameHandler implements Handler {
       } else {
         this.visitCount = record.visitCount + 1;
         this.lastVisited = Optional.of(record.visitTime);
-        this.message = String.format("Hello %s, this is visit number %d. You last visited at %s.",
-            name, visitCount, lastVisited.get());
+        this.message =
+            String.format(
+                "Hello %s, this is visit number %d. You last visited at %s.",
+                name, visitCount, lastVisited.get());
       }
     }
   }
