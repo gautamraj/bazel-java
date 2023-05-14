@@ -30,5 +30,6 @@ java_binary(
     jvm_flags = [
         "-XX:+UseZGC",
     ],
+    visibility = ["//visibility:public"],
     runtime_deps = [":rest"],
 )

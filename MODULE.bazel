@@ -32,6 +32,10 @@ maven.install(
         # JMH microbenchmarking
         "org.openjdk.jmh:jmh-core:jar:1.36",
         "org.openjdk.jmh:jmh-generator-annprocess:jar:1.36",
+        # OpenTelemetry
+        "io.opentelemetry.instrumentation:opentelemetry-api:jar:1.26.0",
+        "io.opentelemetry.instrumentation:opentelemetry-instrumentation-api:jar:1.26.0",
+        "io.opentelemetry.instrumentation:opentelemetry-sdk:jar:1.26.0",
     ],
     lock_file = "//:rules_jvm_external~5.2~maven~maven_install.json",
     repositories = [
@@ -47,3 +51,18 @@ bazel_dep(
     version = "6.1.0",
     dev_dependency = True,
 )
+
+# rules_oci
+bazel_dep(name = "rules_oci", version = "1.0.0-rc1")
+
+oci = use_extension("@rules_oci//oci:extensions.bzl", "oci")
+oci.pull(
+    name = "distroless_java",
+    digest = "sha256:92f34f18951118ac1c8261c128cdf2001b4e74340050f557dcd1ac4ddd6a07ad",
+    image = "gcr.io/distroless/java17-debian11",
+    platforms = ["linux/arm64"],
+)
+use_repo(oci, "distroless_java")
+
+# rules_pkg (for creating .tar files, required by rules_oci)
+bazel_dep(name = "rules_pkg", version = "0.9.1")

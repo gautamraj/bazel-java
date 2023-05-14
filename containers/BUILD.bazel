@@ -1,0 +1,37 @@
+load("@rules_oci//oci:defs.bzl", "oci_image", "oci_tarball")
+load("@rules_pkg//:pkg.bzl", "pkg_tar")
+
+pkg_tar(
+    name = "tar",
+    # Bring the java_binary
+    # TODO - separate JARs into multiple layers for better incrementality
+    srcs = ["//src/main/java/com/example/rest:RestServerMain_deploy.jar"],
+    include_runfiles = True,
+    strip_prefix = ".",
+)
+
+oci_image(
+    name = "image",
+    base = "@distroless_java",
+    entrypoint = [
+        "java",
+        "-jar",
+        "/src/main/java/com/example/rest/RestServerMain_deploy.jar",
+    ],
+    tars = [":tar"],
+)
+
+# $ bazel build //containers:tarball
+# $ podman load < $(bazel cquery --output=files //containers:tarball)
+oci_tarball(
+    name = "tarball",
+    image = ":image",
+    repo_tags = ["gautamraj.github.io/example:latest"],
+)
+
+# TODO - tests
+#structure_test(
+#    name = "test",
+#    config = ["test.yaml"],
+#    image = ":image",
+#)

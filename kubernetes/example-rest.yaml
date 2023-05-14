@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-rest-deployment
+  labels:
+    app: example-rest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example-rest
+  template:
+    metadata:
+      labels:
+        app: example-rest
+    spec:
+      containers:
+      - name: example-rest
+        image: gautamraj.github.io/example
+        ports:
+        - containerPort: 8080
+        imagePullPolicy: IfNotPresent
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: example-rest
+spec:
+  selector:
+    app.kubernetes.io/name: example-rest
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
