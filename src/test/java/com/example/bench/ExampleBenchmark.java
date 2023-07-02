@@ -44,7 +44,7 @@ import org.openjdk.jmh.annotations.Warmup;
 @Fork(value = 1)
 @Threads(value = 64)
 @Warmup(iterations = 2, time = 5)
-@Measurement(iterations = 3, time = 5)
+@Measurement(iterations = 3, time = 10)
 @BenchmarkMode(Mode.Throughput)
 @OutputTimeUnit(TimeUnit.SECONDS)
 @State(Scope.Benchmark)
