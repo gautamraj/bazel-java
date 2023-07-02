@@ -29,10 +29,11 @@ import org.openjdk.jmh.annotations.Warmup;
  * bazel run //src/test/java/com/example/bench:ExampleBenchmark -- -prof async:libPath=/path/to/async-profiler/build/libasyncProfiler.so
  * </pre>
  */
-@Fork(value = 1)
+@Fork(value = 1, jvmArgsAppend = {
+    "-XX:StartFlightRecording:memory-leaks=gc-roots,maxsize=1G,filename=/tmp/"})
 @Threads(value = 4)
 @Warmup(iterations = 0)
-@Measurement(iterations = 1, time = 300)
+@Measurement(iterations = 1, time = 60)
 @BenchmarkMode(Mode.Throughput)
 @OutputTimeUnit(TimeUnit.SECONDS)
 @State(Scope.Benchmark)
@@ -44,7 +45,7 @@ public class LeakyFunctionBenchmark {
   @Setup
   public void setup() {
     leakyFunction = new LeakyFunction();
-    rateLimiter = RateLimiter.create(100000);
+    rateLimiter = RateLimiter.create(50000);
   }
 
   @Benchmark

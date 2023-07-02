@@ -17,8 +17,8 @@ java_binary(
     srcs = ["LeakyFunctionBenchmark.java"],
     jvm_flags = [
         "-XX:+UseZGC",
-        "-Xms128m",
-        "-Xmx128m",
+        "-Xms256m",
+        "-Xmx256m",
     ],
     main_class = "org.openjdk.jmh.Main",
     deps = [
