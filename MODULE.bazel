@@ -1,4 +1,4 @@
-bazel_dep(name = "rules_jvm_external", version = "5.2")
+bazel_dep(name = "rules_jvm_external", version = "5.3")
 
 # To update maven dependencies, update the lines below and then run:
 # bazel run @unpinned_maven//:pin
@@ -7,22 +7,22 @@ maven.install(
     artifacts = [
         # Command line arg parsing
         "com.beust:jcommander:jar:1.82",
-        "com.fasterxml.jackson.core:jackson-databind:jar:2.14.2",
-        "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.14.2",
-        "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.14.2",
+        "com.fasterxml.jackson.core:jackson-databind:jar:2.15.2",
+        "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.15.2",
+        "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.15.2",
         "com.google.code.findbugs:jsr305:3.0.2",
-        "com.google.dagger:dagger-compiler:2.45",
-        "com.google.dagger:dagger-producers:2.45",
+        "com.google.dagger:dagger-compiler:2.47",
+        "com.google.dagger:dagger-producers:2.47",
         "com.google.dagger:dagger-spi:2.45",
         "com.google.dagger:dagger:2.45",
         "com.google.googlejavaformat:google-java-format:1.16.0",
         "com.google.guava:guava:31.1-jre",
         # Test Filesystem
-        "com.google.jimfs:jimfs:1.2",
+        "com.google.jimfs:jimfs:1.3.0",
         # For REST services
-        "io.javalin:javalin:jar:3.13.11",
+        "io.javalin:javalin:jar:5.6.1",
         "javax.inject:javax.inject:1",
-        "junit:junit:4.13",
+        "junit:junit:4.13.2",
         "org.apache.commons:commons-lang3:jar:3.12.0",
         # Logger dependencies
         "org.apache.logging.log4j:log4j-core:jar:2.20.0",
@@ -33,8 +33,8 @@ maven.install(
         "org.openjdk.jmh:jmh-core:jar:1.36",
         "org.openjdk.jmh:jmh-generator-annprocess:jar:1.36",
         # OpenTelemetry
-        "io.opentelemetry:opentelemetry-api:1.26.0",
-        "io.opentelemetry:opentelemetry-sdk:1.26.0",
+        "io.opentelemetry:opentelemetry-api:1.28.0",
+        "io.opentelemetry:opentelemetry-sdk:1.28.0",
     ],
     lock_file = "//:rules_jvm_external~5.2~maven~maven_install.json",
     repositories = [
@@ -47,12 +47,12 @@ use_repo(maven, "maven", "unpinned_maven")
 # Buildifier
 bazel_dep(
     name = "buildifier_prebuilt",
-    version = "6.1.0",
+    version = "6.1.2",
     dev_dependency = True,
 )
 
 # rules_oci
-bazel_dep(name = "rules_oci", version = "1.0.0-rc1")
+bazel_dep(name = "rules_oci", version = "1.2.0")
 
 oci = use_extension("@rules_oci//oci:extensions.bzl", "oci")
 oci.pull(
