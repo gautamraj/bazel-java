@@ -8,6 +8,6 @@ public class RestRoutes {
 
   public void setRoutes(Javalin app) {
     // Define all our routes -> handlers here.
-    app.get("/:name", new GetNameHandler(new VisitorRecords()));
+    app.get("/{name}", new GetNameHandler(new VisitorRecords()));
   }
 }
