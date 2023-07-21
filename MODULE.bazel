@@ -36,7 +36,7 @@ maven.install(
         "io.opentelemetry:opentelemetry-api:1.28.0",
         "io.opentelemetry:opentelemetry-sdk:1.28.0",
     ],
-    lock_file = "//:rules_jvm_external~5.2~maven~maven_install.json",
+    lock_file = "//:maven_install.json",
     repositories = [
         "https://maven.google.com",
         "https://repo1.maven.org/maven2",
