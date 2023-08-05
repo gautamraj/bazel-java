@@ -7,7 +7,7 @@ java_library(
     visibility = ["//visibility:public"],
     runtime_deps = [
         "@maven//:org_apache_logging_log4j_log4j_core",
-        "@maven//:org_apache_logging_log4j_log4j_slf4j_impl",
+        "@maven//:org_apache_logging_log4j_log4j_slf4j2_impl",
     ],
     deps = [
         "//src/main/java/com/example/rest/counter",
@@ -21,7 +21,7 @@ java_library(
         "@maven//:com_google_guava_guava",
         "@maven//:io_javalin_javalin",
         "@maven//:javax_inject_javax_inject",
-        "@maven//:org_slf4j_slf4j_api",
+        "@maven//:org_apache_logging_log4j_log4j_api",
     ],
 )
 
@@ -31,5 +31,7 @@ java_binary(
         "-XX:+UseZGC",
     ],
     visibility = ["//visibility:public"],
-    runtime_deps = [":rest"],
+    runtime_deps = [
+        ":rest",
+    ],
 )

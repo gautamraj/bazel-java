@@ -7,6 +7,12 @@
     </Console>
   </Appenders>
   <Loggers>
+    <!-- Log com.example at debug level -->
+    <Logger name="com.example" level="DEBUG" additivity="false">
+      <AppenderRef ref="console" />
+    </Logger>
+
+    <!-- Suppress noisy libraries by default -->
     <Root level="info" additivity="false">
       <AppenderRef ref="console" />
     </Root>

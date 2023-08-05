@@ -26,7 +26,7 @@ maven.install(
         "org.apache.commons:commons-lang3:jar:3.12.0",
         # Logger dependencies
         "org.apache.logging.log4j:log4j-core:jar:2.20.0",
-        "org.apache.logging.log4j:log4j-slf4j-impl:jar:2.20.0",
+        "org.apache.logging.log4j:log4j-slf4j2-impl:jar:2.20.0",
         # Fluent test assertions
         "org.assertj:assertj-core:jar:3.24.2",
         # JMH microbenchmarking

@@ -8,8 +8,11 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import io.javalin.Javalin;
 import io.javalin.json.JavalinJackson;
 import java.util.concurrent.TimeUnit;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class RestServer {
+  private static final Logger log = LogManager.getLogger(RestServer.class);
 
   private final int port;
   private final Javalin app;
@@ -32,7 +35,10 @@ public class RestServer {
               // Javalin configuration.
               config.http.asyncTimeout = TimeUnit.SECONDS.toMillis(1);
               config.showJavalinBanner = false;
-              config.requestLogger.http((ctx, timeMs) -> {});
+              config.requestLogger.http(
+                  (ctx, timeMs) -> {
+                    log.debug("Processed {} in {} ms", ctx.path(), timeMs);
+                  });
               config.jsonMapper(new JavalinJackson(objectMapper));
 
               // Configure Jetty here.
