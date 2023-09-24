@@ -33,8 +33,6 @@ public class RestServer {
         Javalin.create(
             config -> {
               // Javalin configuration.
-              config.http.asyncTimeout = TimeUnit.SECONDS.toMillis(1);
-              config.showJavalinBanner = false;
               config.requestLogger.http(
                   (ctx, timeMs) -> {
                     log.debug("Processed {} in {} ms", ctx.path(), timeMs);
@@ -48,7 +46,7 @@ public class RestServer {
   }
 
   public void start() {
-    app.start(port);
+    app.start("0.0.0.0", port);
   }
 
   public void stop() {

@@ -31,3 +31,33 @@ TODO (WIP):
 - Protobuf / gRPC examples
 - Metrics / Tracing
 - Java 20 / Loom preview
+
+## Kubernetes Setup
+On mac:
+```
+# Setup podman and minikube
+brew install podman minikube
+
+# Initialize a Linux VM w/4 CPUs, 2GB ram, and 50GB disk.
+podman machine init --cpus 4 --memory 2048 --disk-size 50
+podman machine start
+
+# Launch minikube
+minikube start --driver=podman --container-runtime=cri-o
+
+# Now that kubernetes is running, build the containers and launch a kubernetes
+deployment:
+
+bazel build //containers:tarball
+podman load < $(bazel cquery --output=files //containers:tarball)
+minikube image load gautamraj.github.io/example:latest
+
+# Apply the kubernetes config.
+kubectl apply -f kubernetes/example-rest.yaml
+
+# Expose to the outside
+minikube tunnel
+# TODO - seems redundant, use nodePort
+kubectl expose deployment example-rest-deployment --type=LoadBalancer --port=8080
+curl http://localhost:8080/hello
+```

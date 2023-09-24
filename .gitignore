@@ -2,4 +2,5 @@ bazel-*
 .idea
 .ijwb
 .DS_Store
+licenses/
 profiles/
