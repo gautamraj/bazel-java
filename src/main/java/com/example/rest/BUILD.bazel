@@ -2,15 +2,13 @@ load("@rules_java//java:defs.bzl", "java_binary", "java_library")
 
 java_library(
     name = "rest",
-    srcs = glob(["*.java"]),
-    resources = [
-        "//src/main/resources:log4j2_xml",
+    srcs = [
+        "GetNameHandler.java",
+        "RestRoutes.java",
+        "RestServer.java",
+        "RestServerMain.java",
     ],
-    visibility = ["//visibility:public"],
-    runtime_deps = [
-        "@maven//:org_apache_logging_log4j_log4j_core",
-        "@maven//:org_apache_logging_log4j_log4j_slf4j2_impl",
-    ],
+    visibility = ["//:__subpackages__"],
     deps = [
         "//src/main/java/com/example/rest/counter",
         "@maven//:com_fasterxml_jackson_core_jackson_core",
@@ -25,12 +23,7 @@ java_library(
 
 java_binary(
     name = "RestServerMain",
-    jvm_flags = [
-        "-XX:+UseZGC",
-    ],
     main_class = "com.example.rest.RestServerMain",
     visibility = ["//visibility:public"],
-    runtime_deps = [
-        ":rest",
-    ],
+    runtime_deps = [":rest"],
 )
