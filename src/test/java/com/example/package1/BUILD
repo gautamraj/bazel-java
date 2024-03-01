@@ -1,3 +1,4 @@
+load("@rules_java//java:defs.bzl", "java_library")
 load("//bzl:test.bzl", "junit4_test_suite")
 
 java_library(

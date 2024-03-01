@@ -10,6 +10,7 @@ buildifier(
 )
 
 load("@gazelle//:def.bzl", "DEFAULT_LANGUAGES", "gazelle", "gazelle_binary")
+
 gazelle(
     name = "gazelle",
     gazelle = ":gazelle_bin",
@@ -21,3 +22,7 @@ gazelle_binary(
         "@contrib_rules_jvm//java/gazelle",
     ],
 )
+
+# gazelle:resolve java dagger //third_party:dagger
+# gazelle:java_test_file_suffixes Test.java,ITCase.java
+# gazelle:java_test_mode suite

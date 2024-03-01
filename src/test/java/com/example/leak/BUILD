@@ -1,3 +1,5 @@
+load("@rules_java//java:defs.bzl", "java_binary", "java_library")
+
 java_library(
     name = "leak",
     srcs = glob(

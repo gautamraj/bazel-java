@@ -1,3 +1,5 @@
+load("@rules_java//java:defs.bzl", "java_library")
+
 # Import this to get both dagger and the annotation processor.
 java_library(
     name = "dagger",

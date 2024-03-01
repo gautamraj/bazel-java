@@ -1,3 +1,5 @@
+load("@rules_java//java:defs.bzl", "java_binary", "java_library")
+
 java_library(
     name = "rest",
     srcs = glob(["*.java"]),
@@ -11,16 +13,12 @@ java_library(
     ],
     deps = [
         "//src/main/java/com/example/rest/counter",
-        "//third_party:dagger",
-        "@maven//:com_fasterxml_jackson_core_jackson_annotations",
         "@maven//:com_fasterxml_jackson_core_jackson_core",
         "@maven//:com_fasterxml_jackson_core_jackson_databind",
         "@maven//:com_fasterxml_jackson_datatype_jackson_datatype_jdk8",
         "@maven//:com_fasterxml_jackson_datatype_jackson_datatype_jsr310",
         "@maven//:com_google_code_findbugs_jsr305",
-        "@maven//:com_google_guava_guava",
         "@maven//:io_javalin_javalin",
-        "@maven//:javax_inject_javax_inject",
         "@maven//:org_apache_logging_log4j_log4j_api",
     ],
 )
@@ -30,6 +28,7 @@ java_binary(
     jvm_flags = [
         "-XX:+UseZGC",
     ],
+    main_class = "com.example.rest.RestServerMain",
     visibility = ["//visibility:public"],
     runtime_deps = [
         ":rest",

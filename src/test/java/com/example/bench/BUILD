@@ -1,3 +1,6 @@
+load("@rules_java//java:defs.bzl", "java_binary")
+load("@contrib_rules_jvm//java:defs.bzl", "java_test_suite")
+
 java_binary(
     name = "ExampleBenchmark",
     srcs = ["ExampleBenchmark.java"],
@@ -28,5 +31,22 @@ java_binary(
         "//third_party:jmh",
         "@maven//:com_google_guava_guava",
         "@maven//:org_apache_commons_commons_lang3",
+    ],
+)
+
+java_test_suite(
+    name = "bench",
+    srcs = [
+        "ExampleBenchmark.java",
+        "SanitizeBenchmark.java",
+    ],
+    test_suffixes = [
+        "Test.java",
+        "ITCase.java",
+    ],
+    deps = [
+        "//src/main/java/com/example/rest",
+        "@maven//:org_apache_commons_commons_lang3",
+        "@maven//:org_openjdk_jmh_jmh_core",
     ],
 )
