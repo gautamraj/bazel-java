@@ -8,3 +8,16 @@ buildifier(
     lint_mode = "warn",
     mode = "fix",
 )
+
+load("@gazelle//:def.bzl", "DEFAULT_LANGUAGES", "gazelle", "gazelle_binary")
+gazelle(
+    name = "gazelle",
+    gazelle = ":gazelle_bin",
+)
+
+gazelle_binary(
+    name = "gazelle_bin",
+    languages = DEFAULT_LANGUAGES + [
+        "@contrib_rules_jvm//java/gazelle",
+    ],
+)

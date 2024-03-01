@@ -24,7 +24,7 @@ java_binary(
     deps = [
         ":leak",
         "//third_party:jmh",
-        "@maven//:org_apache_commons_commons_lang3",
         "@maven//:com_google_guava_guava",
+        "@maven//:org_apache_commons_commons_lang3",
     ],
 )

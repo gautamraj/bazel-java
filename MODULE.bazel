@@ -1,4 +1,6 @@
 bazel_dep(name = "rules_jvm_external", version = "5.3")
+bazel_dep(name = "rules_java", version = "7.4.0")
+bazel_dep(name = "contrib_rules_jvm", version = "0.24.0")
 
 # To update maven dependencies, update the lines below and then run:
 # bazel run @unpinned_maven//:pin
@@ -67,3 +69,6 @@ use_repo(oci, "distroless_java")
 
 # rules_pkg (for creating .tar files, required by rules_oci)
 bazel_dep(name = "rules_pkg", version = "0.10.1")
+
+# gazelle
+bazel_dep(name = "gazelle", version = "0.35.0")
