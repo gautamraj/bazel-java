@@ -1,6 +1,6 @@
 {
   "lockFileVersion": 3,
-  "moduleFileHash": "ad9dbb6727cbfd58037f865ea73b27be3977e10099875107dfe4dd7d72d1af0a",
+  "moduleFileHash": "fa0c786a9aa94e97a07699802a9edfe2839e2e3749d4eb216e26c74398f0b06e",
   "flags": {
     "cmdRegistries": [
       "https://bcr.bazel.build/"
@@ -55,7 +55,7 @@
                   "com.google.googlejavaformat:google-java-format:1.20.0",
                   "com.google.guava:guava:33.0.0-jre",
                   "com.google.jimfs:jimfs:1.3.0",
-                  "io.javalin:javalin:5.6.4",
+                  "io.javalin:javalin:6.1.3",
                   "javax.inject:javax.inject:1",
                   "junit:junit:4.13.2",
                   "org.apache.commons:commons-lang3:3.14.0",
@@ -4857,7 +4857,7 @@
                 "{ \"group\": \"com.google.googlejavaformat\", \"artifact\": \"google-java-format\", \"version\": \"1.20.0\" }",
                 "{ \"group\": \"com.google.guava\", \"artifact\": \"guava\", \"version\": \"33.0.0-jre\" }",
                 "{ \"group\": \"com.google.jimfs\", \"artifact\": \"jimfs\", \"version\": \"1.3.0\" }",
-                "{ \"group\": \"io.javalin\", \"artifact\": \"javalin\", \"version\": \"5.6.4\" }",
+                "{ \"group\": \"io.javalin\", \"artifact\": \"javalin\", \"version\": \"6.1.3\" }",
                 "{ \"group\": \"javax.inject\", \"artifact\": \"javax.inject\", \"version\": \"1\" }",
                 "{ \"group\": \"junit\", \"artifact\": \"junit\", \"version\": \"4.13.2\" }",
                 "{ \"group\": \"org.apache.commons\", \"artifact\": \"commons-lang3\", \"version\": \"3.14.0\" }",
@@ -7817,7 +7817,7 @@
                 "{ \"group\": \"com.google.googlejavaformat\", \"artifact\": \"google-java-format\", \"version\": \"1.20.0\" }",
                 "{ \"group\": \"com.google.guava\", \"artifact\": \"guava\", \"version\": \"33.0.0-jre\" }",
                 "{ \"group\": \"com.google.jimfs\", \"artifact\": \"jimfs\", \"version\": \"1.3.0\" }",
-                "{ \"group\": \"io.javalin\", \"artifact\": \"javalin\", \"version\": \"5.6.4\" }",
+                "{ \"group\": \"io.javalin\", \"artifact\": \"javalin\", \"version\": \"6.1.3\" }",
                 "{ \"group\": \"javax.inject\", \"artifact\": \"javax.inject\", \"version\": \"1\" }",
                 "{ \"group\": \"junit\", \"artifact\": \"junit\", \"version\": \"4.13.2\" }",
                 "{ \"group\": \"org.apache.commons\", \"artifact\": \"commons-lang3\", \"version\": \"3.14.0\" }",

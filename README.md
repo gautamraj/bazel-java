@@ -21,6 +21,7 @@ This is a simple java example project that tries to follow [best practices](http
   - This supports transitive deps
   - Downloads 3rd party source code (e.g. for IntelliJ)
 - BUILD/Java formatter
+- Automatic BUILD generation with gazelle
 - Logging via log4j2
 - REST
 - JUnit4 + AssertJ tests
@@ -30,7 +31,6 @@ This is a simple java example project that tries to follow [best practices](http
 TODO (WIP):
 - Protobuf / gRPC examples
 - Metrics / Tracing
-- Java 20 / Loom preview
 
 ## Kubernetes Setup
 On mac:
