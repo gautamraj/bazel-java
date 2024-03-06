@@ -1,4 +1,4 @@
-bazel_dep(name = "rules_jvm_external", version = "5.3")
+bazel_dep(name = "rules_jvm_external", version = "6.0")
 bazel_dep(name = "rules_java", version = "7.4.0")
 
 # To update maven dependencies, update the lines below and then run:
