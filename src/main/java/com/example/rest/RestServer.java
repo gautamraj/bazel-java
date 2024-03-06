@@ -37,7 +37,7 @@ public class RestServer {
                   (ctx, timeMs) -> {
                     log.debug("Processed {} in {} ms", ctx.path(), timeMs);
                   });
-              config.jsonMapper(new JavalinJackson(objectMapper));
+              config.jsonMapper(new JavalinJackson(objectMapper, true));
 
               // Configure Jetty here.
               // config.server(...);

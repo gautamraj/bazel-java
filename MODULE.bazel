@@ -42,6 +42,8 @@ maven.install(
         "https://repo1.maven.org/maven2",
         "https://maven.google.com",
     ],
+    fail_if_repin_required = True,
+    fetch_sources = True,
 )
 use_repo(maven, "maven", "unpinned_maven")
 
