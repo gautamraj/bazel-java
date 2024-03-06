@@ -8,3 +8,24 @@ buildifier(
     lint_mode = "warn",
     mode = "fix",
 )
+
+load("@gazelle//:def.bzl", "DEFAULT_LANGUAGES", "gazelle", "gazelle_binary")
+
+gazelle(
+    name = "gazelle",
+    gazelle = ":gazelle_bin",
+)
+
+gazelle_binary(
+    name = "gazelle_bin",
+    languages = [
+        "@gazelle//language/proto",
+        "@contrib_rules_jvm//java/gazelle",
+    ],
+)
+
+# gazelle:build_file_name BUILD.bazel
+# gazelle:java_test_file_suffixes Test.java,ITCase.java
+# gazelle:java_test_mode suite
+# gazelle:resolve java dagger //third_party:dagger
+# gazelle:resolve java org.openjdk.jmh //third_party:jmh
