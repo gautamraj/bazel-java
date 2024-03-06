@@ -38,6 +38,7 @@ public class RestServer {
                     log.debug("Processed {} in {} ms", ctx.path(), timeMs);
                   });
               config.jsonMapper(new JavalinJackson(objectMapper, true));
+              config.useVirtualThreads = true;
 
               // Configure Jetty here.
               // config.server(...);

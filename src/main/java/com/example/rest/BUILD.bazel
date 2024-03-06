@@ -9,6 +9,10 @@ java_library(
         "RestServerMain.java",
     ],
     visibility = ["//:__subpackages__"],
+    runtime_deps = [
+        "@maven//:org_apache_logging_log4j_log4j_core",
+        "@maven//:org_apache_logging_log4j_log4j_slf4j2_impl",
+    ],
     deps = [
         "//src/main/java/com/example/rest/counter",
         "@maven//:com_fasterxml_jackson_core_jackson_core",
@@ -30,7 +34,5 @@ java_binary(
     visibility = ["//visibility:public"],
     runtime_deps = [
         ":rest",
-        "@maven//:org_apache_logging_log4j_log4j_core",
-        "@maven//:org_apache_logging_log4j_log4j_slf4j2_impl",
     ],
 )
