@@ -29,8 +29,9 @@ import org.openjdk.jmh.annotations.Warmup;
  * bazel run //src/test/java/com/example/bench:ExampleBenchmark -- -prof async:libPath=/path/to/async-profiler/build/libasyncProfiler.so
  * </pre>
  */
-@Fork(value = 1, jvmArgsAppend = {
-    "-XX:StartFlightRecording:memory-leaks=gc-roots,maxsize=1G,filename=/tmp/"})
+@Fork(
+    value = 1,
+    jvmArgsAppend = {"-XX:StartFlightRecording:memory-leaks=gc-roots,maxsize=1G,filename=/tmp/"})
 @Threads(value = 4)
 @Warmup(iterations = 0)
 @Measurement(iterations = 1, time = 60)

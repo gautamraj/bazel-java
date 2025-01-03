@@ -7,9 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.apache.commons.lang3.RandomUtils;
 import org.apache.commons.lang3.StringUtils;
 
-/**
- * Example of a simple memory leak - a structure that grows unbounded.
- */
+/** Example of a simple memory leak - a structure that grows unbounded. */
 public class LeakyFunction {
 
   private final Set<String> inflightActions = ConcurrentHashMap.newKeySet();
@@ -31,8 +29,12 @@ public class LeakyFunction {
 
   private String doSomeAction(String input) {
     // Do some pointless string manipulation to create memory pressure.
-    return Strings.repeat(StringUtils.reverse(
-            CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, input).toUpperCase().toLowerCase()),
+    return Strings.repeat(
+        StringUtils.reverse(
+            CaseFormat.UPPER_CAMEL
+                .to(CaseFormat.LOWER_UNDERSCORE, input)
+                .toUpperCase()
+                .toLowerCase()),
         10);
   }
 }
