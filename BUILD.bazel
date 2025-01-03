@@ -28,4 +28,3 @@ gazelle_binary(
 # gazelle:java_test_mode suite
 # gazelle:resolve java dagger //third_party:dagger
 # gazelle:resolve java org.openjdk.jmh //third_party:jmh
-# gazelle:resolve java javax.annotation @maven//:com_github_spotbugs_spotbugs_annotations
