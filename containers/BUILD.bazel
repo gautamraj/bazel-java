@@ -1,4 +1,4 @@
-load("@rules_oci//oci:defs.bzl", "oci_image", "oci_tarball")
+load("@rules_oci//oci:defs.bzl", "oci_image", "oci_load")
 load("@rules_pkg//:pkg.bzl", "pkg_tar")
 
 pkg_tar(
@@ -21,10 +21,10 @@ oci_image(
     tars = [":tar"],
 )
 
-# $ bazel build //containers:tarball
-# $ podman load < $(bazel cquery --output=files //containers:tarball)
-oci_tarball(
-    name = "tarball",
+# $ bazel build //containers:load
+# $ podman load < $(bazel cquery --output=files //containers:load)
+oci_load(
+    name = "load",
     image = ":image",
     repo_tags = ["gautamraj.github.io/example:latest"],
 )
