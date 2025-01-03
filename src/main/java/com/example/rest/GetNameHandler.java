@@ -6,7 +6,7 @@ import io.javalin.http.Context;
 import io.javalin.http.Handler;
 import java.time.Instant;
 import java.util.Optional;
-import javax.annotation.Nullable;
+import edu.umd.cs.findbugs.annotations.Nullable;
 
 /**
  * {@link GetNameHandler} takes a name from the path and returns a JSON response with a greeting and

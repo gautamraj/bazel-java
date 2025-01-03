@@ -3,7 +3,7 @@ package com.example.rest.counter;
 import com.google.common.collect.Maps;
 import java.time.Instant;
 import java.util.Map;
-import javax.annotation.Nullable;
+import edu.umd.cs.findbugs.annotations.Nullable;
 
 public class VisitorRecords {
 

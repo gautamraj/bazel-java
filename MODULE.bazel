@@ -11,7 +11,7 @@ maven.install(
         "com.fasterxml.jackson.core:jackson-databind:2.18.2",
         "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.18.2",
         "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.18.2",
-        "com.google.code.findbugs:jsr305:3.0.2",
+        "com.github.spotbugs:spotbugs-annotations:4.8.6",
         "com.google.dagger:dagger-compiler:2.54",
         "com.google.dagger:dagger-producers:2.54",
         "com.google.dagger:dagger-spi:2.54",
